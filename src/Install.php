@@ -10,7 +10,7 @@ class Install
      * @var array
      */
     protected static $pathRelation = [
-        'config/plugin/hsioe-job' => 'config/plugin/hsioe-job'
+        'config/plugin/hsioe/jobs' => 'config/plugin/hsioe/jobs'
     ];
     
     /**
