@@ -23,7 +23,7 @@ class HsioeJobs
      */
     public static function send(array $data, int $delay = 0): bool
     {
-        return Redis::send(config('plugin.hsioe-job.app.queue_name'), $data, $delay);
+        return Redis::send(config('plugin.hsioe.jobs.app.queue_name'), $data, $delay);
     }
     
     /**
@@ -32,7 +32,7 @@ class HsioeJobs
      */
     public function onWorkerStart(): void
     {
-        Client::connection()->subscribe(config('plugin.hsioe-job.app.queue_name'), function (array $payload) {
+        Client::connection()->subscribe(config('plugin.hsioe.jobs.app.queue_name'), function (array $payload) {
             // 监听队列数据
             $job = $payload['job'] ?? '';
             $data = $payload['args'] ?? null;
